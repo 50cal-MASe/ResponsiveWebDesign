@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+  <head>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+    <link rel="sytlesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">Survey Form Cari Kerja</h1>
+    <p id="description">Silahkan Berbagi Pengalaman Anda dalam Mencari Pekerjaan Saat Ini (2025)</p>
+    <form id="survey-form">
+      <fieldset>
+        <div>
+        <label id="name-label">Nama Lengkap
+        <input id="name" type="text" name="nama" placeholder="M. Teriyaki" required /></label>
+        <div>
+        <label id="email-label">Email <input id="email" type="email" placeholder="teriyaki@mail.com" required /></label></div>
+        <div>
+        <label id="number-label">Usia <input id="number" type="number" min="18" max="55" placeholder="18" required /></label></div>
+        <div>
+        <label id="dropdown-label">Pendidikan Terakhir Anda
+        <select id="dropdown">
+          <option value="">(select one)</option>
+          <option value="1">SD</option>
+          <option value="2">SMP</option>
+          <option value="3">SMA/SMK</option>
+          <option value="4">D3/D4</option>
+          <option value="5">S1</option>
+          <option value="6">S2</option>
+          <option value="7">S3</option>
+        </select></label>
+        </div>
+        <h2>Pengalaman Bekerja</h2>
+        <div>
+        <label id="tidak-berpengalaman"><input id="tidak-berpengalaman" type="radio" name="pengalaman-kerja" class="inline" value="1" class="inline" checked />Tidak Berpengalaman</label></div>
+        <div><label id="fresh-graduate"><input id="fresh-graduate" type="radio" name="pengalaman-kerja" class="inline" value="2" class="inline" />Fresh Graduate</label></div>
+        <div>
+          <label id="1tahun"><input id="1tahun" type="radio" name="pengalaman-kerja" class="inline" value="3" class="inline" />1 Tahun</label>
+        </div>
+        <div>
+          <label id="2tahun"><input id="2tahun" type="radio" name="pengalaman-kerja" class="inline" value="4" />2 Tahun</label>
+        </div>
+        <div>
+          <label id=">2tahun"><input id=">2tahun" type="radio" name="pengalaman-kerja" class="inline" value="5" />Lebih dari 2 Tahun</label>
+        </div>
+        <h2>Rencana Kerja</h2>
+        <label for="reker1"><input id="reker1" type="checkbox" name="reker" value="reker1" class="inline" checked/>Pegawai  Negeri Sipil</label>
+        <label for="reker2"><input id="reker2" type="checkbox"  name="reker" value="reker2" class="inline" />Pegawai  BUMN</label>
+        <label for="reker3"><input id="reker3" type="checkbox" name="reker" value="reker3" class="inline" />Pegawai  Swasta</label>
+        <label for="reker4"><input id="reker4" type="checkbox" name="reker" value="reker4" class="inline" />Lain-Lain</label>
+        <label for="cerita">Ceritakan Pengalaman Anda:
+          <textarea id="cerita" name="cerita" rows="4" cols="30" placeholder="Saya mengalami kesulitan..."></textarea>
+        </label>
+      </fieldset>
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+  </body>
