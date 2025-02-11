@@ -1,0 +1,117 @@
+@media (prefers-reduced-motion: no-preference) {
+  * {
+  scroll-behavior: smooth;
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: #202738;
+  color: #FEFEFF;
+  font-family: Verdana;
+  margin: 0;
+  display: flex;
+}
+
+#navbar {
+  position: fixed;
+  left: 0;
+  max-width: 330px;
+}
+
+nav {
+  width: 50%;
+  align-items: left;
+  margin: 0;
+  padding: 0 2rem 0 10px;
+  height: 500px;
+} 
+
+nav > header > h1 {
+  padding: 0.3em;
+  border: 2px solid #3E7875;
+  text-align: center;
+}
+
+nav > ul {
+  flex-direction: row;
+  padding: 0 0 0 15px;
+}
+
+nav > ul > li {
+  color: #01F3E7;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0 8px 6px;
+  border-bottom: 1px solid #3E7875;
+  display: block;
+}
+
+nav > ul > li:hover {
+  background-color: #FEFEFF;
+  color: #202738;
+}
+
+li > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#main-doc {
+  margin-left: 345px;
+  border-left: 3px solid #3E7875;
+  padding: 0 0 0 1rem;
+}
+
+.main-section > header {
+  font-size: 24px;
+  font-family: arial;
+  font-weight: 600;
+  padding: 1rem 0 0.07rem 0.3rem;
+  margin: 0;
+}
+
+.main-section > p {
+  text-align: justify;
+  font-size: 14px;
+  padding: 0 3rem 0 0;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.stcss {
+  background-color: rgba(209, 209, 209, 0.4);
+  padding: 0 0 0 1rem;
+  width: 200px;
+}
+
+.ndcss {
+  background-color: rgba(209, 209, 209, 0.4);
+  padding: 0 0 0 30px;
+  width: 186px;
+}
+
+.rdcss {
+  background-color: rgba(209, 209, 209, 0.4);
+  padding: 0 0 0 40px;
+  width: 176px;
+}
+
+.longcss {
+  background-color: rgba(209, 209, 209, 0.4);
+  width: 330px;
+  padding: 0 0 0 25px;
+  overflow: auto;
+}
+
+.shortcss {
+  background-color: rgba(209, 209, 209, 0.4);
+  width: 330px;
+  padding: 0;
+  overflow: auto;
+}
