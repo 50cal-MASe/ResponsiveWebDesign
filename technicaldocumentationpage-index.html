@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Documentation Page</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>
+        <h1>
+          CSS DOCUMENTATION
+        </h1>
+      </header>
+      <ul>
+        <li><a class="nav-link" href="#introduction">introduction</a></li>
+        <li><a class="nav-link" href="#adding_css_to_document">adding css to document</a></li>
+        <li><a class="nav-link" href="#basic_css_selectors">basic css selectors</a></li>
+        <li><a class="nav-link" href="#attribute_selectors">attribute selectors</a></li>
+        <li><a class="nav-link" href="#pseudo_classes_and_pseudo_elements">pseudo classes and pseudo elements</a></li>
+        <li><a class="nav-link" href="#combinators">combinators</a></li>
+        <li><a class="nav-link" href="#the_box_models">the box models</a></li>
+        <li><a class="nav-link" href="#values_and_units">values and units</a></li>
+        <li><a class="nav-link" href="#overflowing_contents">overflowing contents</a></li>
+        <li><a class="nav-link" href="#images_and_media">images and media</a></li>
+        <li><a class="nav-link" href="#css_layout">css layout</a></li>
+        <li><a class="nav-link" href="#floats">floats</a></li>
+        <li><a class="nav-link" href="#positioning">positioning</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="introduction">
+        <header>introduction</header>
+        <p>CSS (Cascading Style Sheets) is used to style and layout web pages — for example, to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features. This module provides all the CSS fundamentals you'll need for now, including syntax, features, and techniques.</p>
+      </section>
+      <section class="main-section" id="adding_css_to_document">
+        <header>adding css to document</header>
+        <p>An <span class="bold">external</span> stylesheet contains CSS in a separate file with a .css extension. This is the most common and useful method of bringing CSS to a document. You can link a single CSS file to multiple web pages, styling all of them with the same CSS stylesheet.</p>
+        <p>Create a file in the same folder as your HTML document and save it as styles.css.</p>
+        <p>To link styles.css to index.html, add the following line somewhere inside the &lthead&gt of the HTML document:</p>
+        <code>
+          <div class="longcss">&lt;link rel=&quot;stylesheet&quot href=&quotstyles.css&quot /&gt</div>
+        </code>
+        <p><span class="bold">Internal</span> stylesheets are contained within &ltstyle&gt elements, which go inside the HTML &lthead&gt. In some circumstances, internal stylesheets can be useful. For example, perhaps you're working with a content management system where you are blocked from modifying external CSS files. In your HTML document, add the following snippet somewhere between the &lthead&gt and &lt/head&gt tags:</p>
+        <code>
+          <div class="stcss">&ltstyle&gt </div>
+          <div class="ndcss">p { </div>
+          <div class="rdcss">color: purple; </div>
+          <div class="rdcss">} </div>
+          <div class="stcss">&lt/style&gt</div>
+        </code>
+      </section>
+      <section class="main-section" id="basic_css_selectors">
+        <header>basic css selectors</header>
+        <p>A CSS selector is the first part of a CSS Rule. It is a pattern of elements and other terms that tell the browser which HTML elements should be selected to have the CSS property values inside the rule applied to them. The element or elements which are selected by the selector are referred to as the subject of the selector.</p>
+        <p>The case-sensitive class selector starts with a dot (.) character. It will select everything in the document with that class applied to it. In the live example below we have created a class called highlight, and have applied it to several places in my document. All of the elements that have the class applied are highlighted.</p>
+        <p>html</p>
+        <code>
+          <div class="stcss">&lth1 class="highlight"&gtClass selectors&lt/h1&gt</div>
+        </code>
+        <p>CSS</p>
+        <code>
+          <div class="stcss">.highlight {</div>
+          <div class="rdcss">background-color: yellow;</div>
+          <div class="stcss">}</div>
+        </code>
+        <p>The case-sensitive ID selector begins with a # rather than a dot character, but is used in the same way as a class selector. The difference is that an ID can be used only once per page, and elements can only have a single id value applied to them. It can select an element that has the id set on it, and you can precede the ID with a type selector to only target the element if both the element and ID match.</p>
+        <p>html</p>
+        <code class="longcss">
+             &ltp id="one"&gt
+  Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.&lt/p&gt
+        </code>
+        <p>CSS</p>
+        <code>
+          <div class="stcss">.highlight {</div>
+          <div class="ndcss">background-color: yellow;</div>
+          <div class="stcss">}</div>
+        </code>
+        <p>The universal selector is indicated by an asterisk (*). It selects everything in the document. If * is chained using a descendant combinator, it selects everything inside that ancestor element.</p>
+        <code>
+          <div class="stcss">* {</div>
+          <div class="ndcss">margin: 0;</div>
+          <div class="stcss">}</div>
+        </code>
+      </section>
+      <section class="main-section" id="attribute_selectors">
+        <header>attribute selectors</header>
+        <p>In CSS you can use attribute selectors to target elements with certain attributes.
+          <ul>
+            <li>By using <code class="shortcss">li[class]</code> we can match any list item with a class attribute. This matches all of the list items except the first one.</li>
+            <li><code class="shortcss">li[class="a"]</code> matches a selector with a class of a, but not a selector with a class of a with another space-separated class as part of the value. It selects the second list item.</li>
+            <li><code class="shortcss">li[class~="a"]</code> will match a class of a but also a value that contains the class of a as part of a whitespace-separated list. It selects the second and third list items.</li>
+          </ul>
+        </p>
+      </section>
+      <section class="main-section" id="pseudo_classes_and_pseudo_elements">
+        <header>pseudo classes and pseudo elements</header>
+        <p>A <span class="bold">pseudo-class</span> is a selector that selects elements that are in a specific state, e.g. they are the first element of their type, or they are being hovered over by the mouse pointer. They tend to act as if you had applied a class to some part of your document, often helping you cut down on excess classes in your markup, and giving you more flexible, maintainable code.</p>
+        <p>Pseudo-classes are keywords that start with a colon. For example, <code>:hover</code> is a pseudo-class.</p>
+        <p>Pseudo-class</p>
+        <code>
+          <div class="stcss">article p:first-child {</div>
+          <div class="ndcss">font-size: 120%;</div>
+          <div class="ndcss">font-weight: bold;</div>
+          <div class="stcss">}</div>
+        </code>
+        <p><span class="bold">Pseudo-elements</span> behave in a similar way. However, they act as if you had added a whole new HTML element into the markup, rather than applying a class to existing elements.</p>
+        <p>Pseudo-elements start with a double colon <code>::. ::before</code> is an example of a pseudo-element.</p>
+        <p>Pseudo-elements</p>
+        <code>
+          <div class="stcss">article p::first-line {</div>
+          <div class="ndcss">font-size: 120%;</div>
+          <div class="ndcss">font-weight: bold;</div>
+          <div class="stcss">}</div>
+        </code>
+      </section>
+      <section class="main-section" id="combinators">
+        <header>combinators</header>
+        <p>Combinators are used to combine other selectors in a way that allows us to select elements based on their location in the DOM relative to other elements (for example, child or sibling).</p>
+        <p>The <span class="bold">descendant combinator</span> typically represented by a single space ( ) character, combines two selectors such that elements matched by the second selector are selected if they have an ancestor (parent, parent's parent, parent's parent's parent, etc.) element matching the first selector. Selectors that utilize a descendant combinator are called descendant selectors.</p>
+        <code>
+          <div class="stcss">body article p {</div>
+          <div class="stcss">}</div>
+        </code>
+        <p>The <span class="bold">child combinator (>)</span> is placed between two CSS selectors. It matches only those elements matched by the second selector that are the direct children of elements matched by the first. Descendant elements further down the hierarchy don't match.</p>
+        <code>
+          <div class="stcss">ul > li {</div>
+          <div class="ndcss">border-top: 5px solid red;</div>
+          <div class="stcss">}</div>
+        </code>
+        <p>The <span class="bold">next-sibling combinator (+)</span> is placed between two CSS selectors. It matches only those elements matched by the second selector that come right after the element matched by the first selector.</p>
+        <code>
+          <div class="stcss">h1 + p {</div>
+          <div class="ndcss">font-weight: bold;</div>
+          <div class="ndcss">background-color: #333;</div>
+          <div class="ndcss">color: #fff;</div>
+          <div class="ndcss">padding: 0.5em;</div>
+          <div class="stcss">}</div>
+        </code>
+        <p>If you want to select siblings of an element even if they are not directly adjacent, then you can use the <span class="bold">subsequent-sibling combinator (~)</span>. To select all &ltimg&gt elements that come anywhere after &ltp&gt elements, we'd do this:</p>
+        <code class="shortcss">p ~ img</code>
+      </section>
+      <section class="main-section" id="the_box_models">
+        <header>the box models</header>
+         <p>Everything in CSS has a box around it, and understanding these boxes is key to being able to create more complex layouts with CSS, or to align items with other items.</p>
+         <p>The CSS box model as a whole applies to block boxes and defines how the different parts of a box — margin, border, padding, and content — work together to create a box that you can see on a page. Inline boxes use just some of the behavior defined in the box model.</p>
+         <p>Part of the box</p>
+         <ul>
+           <li><span class="bold">Content box:</span> The area where your content is displayed; size it using properties like width and height.</li>
+           <li><span class="bold">Padding box:</span> The padding sits around the content as white space; size it using padding and related properties.</li>
+           <li><span class="bold">Border box:</span> The border box wraps the content and any padding; size it using border and related properties.</li>
+           <li><span class="bold">Margin box:</span> The margin is the outermost layer, wrapping the content, padding, and border as whitespace between this box and other elements; size it using margin and related properties.</li>
+         </ul>
+      </section>
+      <section class="main-section" id="values_and_units">
+        <header>values and units</header>
+         <p>In CSS specifications and on the property pages here on MDN you will be able to spot value types as they will be surrounded by angle brackets (<, >), such as &ltcolor&gt or &ltlength&gt. When you see the value type &ltcolor&gt as valid for a particular property, that means you can use any valid color as a value for that property, as listed on the &ltcolor&gt reference page.</p>
+         <p>Sometimes value types and properties can have the same, or similar names — For example, there is a color property and a &ltcolor&gt data type. You can use the angle brackets to determine which one you are studying in each case. HTML elements also use angle brackets, but it should be clear from the context which one you are looking at.</p>
+         <p><span class="bold">em and rem</span> are the two relative lengths you are likely to encounter most frequently when sizing anything from boxes to text.</p>
+         <p>the <span class="bold">em</span> unit means "my parent element's font-size" if used for font-size (and "my own font-size" when used for anything else).</p>
+         <p>the <span class="bold">rem</span> unit means "The root element's font-size" (rem stands for "root em").</p>
+         <p><span class="bold">line and height units.</span> lh and rlh are relative length units similar to em and rem. The difference between lh and rlh is that the first one is relative to the line height of the element itself, while the second one is relative to the line height of the root element, usually &lthtml&gt.</p>
+         <p>a <span class="bold">percentage</span> is treated in the same way as a length. The thing with percentages is that they are always set relative to some other value. For example, if you set an element's font-size as a percentage, it will be a percentage of the font-size of the element's parent. If you use a percentage for a width value, it will be a percentage of the width of the parent.</p>
+         <p>Some value types accept <span class="bold">numbers</span>, without any unit added to them. An example of a property which accepts a unitless number is the opacity property, which controls the opacity of an element (how transparent it is). This property accepts a number between 0 (fully transparent) and 1 (fully opaque).</p>
+         <p>The <span class="bold">position</span> value type represents a set of 2D coordinates, used to position an item such as a background image (via background-position). It can take keywords such as top, left, bottom, right, and center to align items with specific bounds of a 2D box, along with lengths, which represent offsets from the top and left-hand edges of the box.</p>
+      </section>
+      <section class="main-section" id="overflowing_contents">
+        <header>overflowing contents</header>
+        <p>Overflow happens when there is too much content to fit in a box. CSS provides various tools to manage overflow.</p>
+        <p>Wherever possible, CSS does not hide content. This would cause data loss. The problem with data loss is that you might not notice. Website visitors may not notice. If the submit button on a form disappears and no one can complete the form, this could be a big problem! Instead, CSS overflows in visible ways. You are more likely to see there is a problem. At worst, a site visitor will let you know that content is overlapping.</p>
+        <p>Hiding overflowing content</p>
+        <code>
+          <div class="stcss">.box {</div>
+          <div class="ndcss">border: 1px solid #333333;</div>
+          <div class="ndcss">width: 250px;</div>
+          <div class="ndcss">height: 100px;</div>
+          <div class="ndcss">overflow: hidden;</div>
+          <div class="stcss">}</div>
+        </code>
+        <p>Scrolling overflowing content</p>
+        <code>
+          <div class="stcss">.box {</div>
+          <div class="ndcss">border: 1px solid #333333;</div>
+          <div class="ndcss">width: 250px;</div>
+          <div class="ndcss">height: 100px;</div>
+          <div class="ndcss">overflow: scroll;</div>
+          <div class="stcss">}</div>
+        </code>
+        <p>Only displaying scrollbars when needed</p>
+        <code>
+          <div class="stcss">.box {</div>
+          <div class="ndcss">border: 1px solid #333333;</div>
+          <div class="ndcss">width: 250px;</div>
+          <div class="ndcss">height: 100px;</div>
+          <div class="ndcss">overflow: auto;</div>
+          <div class="stcss">}</div>
+        </code>
+      </section>
+      <section class="main-section" id="images_and_media">
+        <header>images and media</header>
+         <p>Images and video are described as replaced elements. This means that CSS cannot affect the internal layout of these elements — only their position on the page amongst other elements. As we will see however, there are various things that CSS can do with an image.</p>
+         <p>Certain replaced elements, such as images and video, are also described as having an aspect ratio. This means that it has a size in both the horizontal (x) and vertical (y) dimensions, and will be displayed using the intrinsic dimensions of the file by default.</p>
+      </section>
+      <section class="main-section" id="css_layout">
+        <header>css layout</header>
+         <p>CSS page layout techniques allow us to take elements contained in a web page and control where they're positioned relative to the following factors: their default position in normal layout flow, the other elements around them, their parent container, and the main viewport/window.</p>
+         <p>Elements on a webpage lay out in <span class="bold">normal flow</span> if you haven't applied any CSS to change the way they behave. You can change how elements behave either by adjusting their position in normal flow or by removing them from it altogether. Starting with a solid, well-structured document that's readable in normal flow is the best way to begin any webpage. It ensures that your content is readable even if the user's using a very limited browser or a device such as a screen reader that reads out the content of the page. In addition, since normal flow is designed to make a readable document, by starting in this way you're working with the document rather than struggling against it as you make changes to the layout.</p>
+      </section>
+      <section class="main-section" id="floats">
+        <header>floats</header>
+         <p>The float property was introduced to allow web developers to implement layouts involving an image floating inside a column of text, with the text wrapping around the left or right of it. The kind of thing you might get in a newspaper layout.</p>
+         <p>Floats have commonly been used to create entire website layouts featuring multiple columns of information floated so they sit alongside one another (the default behavior would be for the columns to sit below one another in the same order as they appear in the source). There are newer, better layout techniques available. Using floats in this way should be regarded as a legacy technique.</p>
+         <code>
+           <div class="stcss">.box {</div>
+           <div class="ndcss">float: left;</div>
+           <div class="ndcss">margin-right: 15px;</div>
+           <div class="ndcss">width: 150px;</div>
+           <div class="ndcss">height: 100px;</div>
+           <div class="ndcss">border-radius: 5px;</div>
+           <div class="ndcss">background-color: rgb(207 232 220);</div>
+           <div class="ndcss">padding: 1em;</div>
+           <div class="stcss">}</div>
+         </code>
+      </section>
+      <section class="main-section" id="positioning">
+        <header>positioning</header>
+         <p>Positioning allows you to take elements out of normal document flow and make them behave differently, for example, sitting on top of one another or always remaining in the same place inside the browser viewport.</p>
+         <p><span class="bold">Static positioning</span> is the default that every element gets.</p>
+         <code>
+           <div class="stcss">.positioned {</div>
+           <div class="ndcss">position: static;</div>
+           <div class="ndcss">background: yellow;</div>
+           <div class="stcss">}</div>
+         </code>
+         <p><span class="bold">Relative positioning</span> is the first position type we'll take a look at. This is very similar to static positioning, except that once the positioned element has taken its place in the normal flow, you can then modify its final position, including making it overlap other elements on the page.</p>
+         <code>
+           <div class="stcss">.positioned {</div>
+           <div class="ndcss">position: relative;</div>
+           <div class="stcss">}</div>
+         </code>
+         <p>An <span class="bold">absolutely positioned</span> element no longer exists in the normal document flow. Instead, it sits on its own layer separate from everything else. This is very useful: it means that we can create isolated UI features that don't interfere with the layout of other elements on the page. For example, popup information boxes, control menus, rollover panels, UI features that can be dragged and dropped anywhere on the page, and so on.</p>
+         <code>
+           <div class="stcss">.positioned {</div>
+           <div class="ndcss">position: absolute;</div>
+           <div class="stcss">}</div>
+         </code>
+         <p><span class="bold">Fixed positioning</span> fixes an element in place relative to the visible portion of the viewport. This means that you can create useful UI items that are fixed in place, like persistent navigation menus that are always visible no matter how much the page scrolls.</p>
+         <code>
+           <div class="stcss">.positioned {</div>
+           <div class="ndcss">position: fixed;</div>
+           <div class="stcss">}</div>
+         </code>
+         <p><span class="bold">Sticky positioning</span> is basically a hybrid between relative and fixed position. It allows a positioned element to act like it's relatively positioned until it's scrolled to a certain threshold (e.g., 10px from the top of the viewport), after which it becomes fixed.</p>
+         <code>
+           <div class="stcss">.positioned {</div>
+           <div class="ndcss">position: sticky;</div>
+           <div class="stcss">}</div>
+         </code>
+      </section>
+      <footer>
+        <p>All content from: <a class="source" href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics">DEV MOZILLA ORG</a></p>
+      </footer>
+    </main>
+  </body>
+</html>
